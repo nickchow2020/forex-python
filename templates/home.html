@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Currency Converter{% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+            <ul>
+                {% for category,message in messages %}
+                    <li class="{{category}}">{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form  method="POST">
+        <div>
+            <label for="conver_from">Converting from:</label>
+            <input type="text" name="from" id="conver_from">
+        </div>
+
+        <div>
+            <label for="convert_to">Converting to:</label>
+            <input type="text" name="to" id="convert_to">
+        </div>
+
+        <div>
+            <label for="amount">Amount:</label>
+            <input type="text" name="amount" id="amount">
+        </div>
+
+        <input type="submit" value="Convert">
+    </form>
+{% endblock %}
